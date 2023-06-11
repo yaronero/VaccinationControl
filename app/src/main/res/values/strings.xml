@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">VaccinationControl</string>
+    <string name="authorization_title">Vaccination\nControl</string>
+
+    <string name="login">Login</string>
+    <string name="registration">Registration</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
