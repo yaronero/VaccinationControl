@@ -3,7 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.vaccinationcontrol.ui.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/toStartFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/toUserFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/startFragment"
@@ -12,7 +25,7 @@
         tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/toLoginFragment"
-            app:destination="@id/loginFragment"/>
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
@@ -22,7 +35,7 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/toUserFragment"
-            app:destination="@id/userFragment"/>
+            app:destination="@id/userFragment" />
     </fragment>
 
     <fragment
@@ -30,5 +43,22 @@
         android:name="com.example.vaccinationcontrol.ui.main.user.UserFragment"
         android:label="UserFragment"
         tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/toPassportFragment"
+            app:destination="@id/passportFragment">
+            <argument
+                android:name="userId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/passportFragment"
+        android:name="com.example.vaccinationcontrol.ui.main.passport.PassportFragment"
+        android:label="PassportFragment"
+        tools:layout="@layout/fragment_passport">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
     </fragment>
 </navigation>

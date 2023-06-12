@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/top_bar_height"
+        android:theme="@style/TopBarLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="@dimen/arrow_back_size"
+            android:layout_height="@dimen/arrow_back_size"
+            android:layout_marginStart="8dp"
+            android:importantForAccessibility="no"
+            android:theme="@style/WhiteBackArrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passport_data"
+            android:theme="@style/TopBarTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/passport_background"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/UserInfoLayout">
+
+                <TextView
+                    android:layout_width="@dimen/passport_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/passport_number"
+                    android:theme="@style/DescriptionText" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/UserInfoText"
+                    tools:text="A1234567" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/UserInfoLayout">
+
+                <TextView
+                    android:layout_width="@dimen/passport_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notes"
+                    android:theme="@style/DescriptionText" />
+
+                <TextView
+                    android:id="@+id/note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/UserInfoText"
+                    tools:text="Regular passport" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/UserInfoLayout">
+
+                <TextView
+                    android:layout_width="@dimen/passport_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country"
+                    android:theme="@style/DescriptionText" />
+
+                <TextView
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/UserInfoText"
+                    tools:text="United Kingdom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/UserInfoLayout">
+
+                <TextView
+                    android:layout_width="@dimen/passport_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/expiration_date"
+                    android:theme="@style/DescriptionText" />
+
+                <TextView
+                    android:id="@+id/expiration_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/UserInfoText"
+                    tools:text="2025-12-30" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

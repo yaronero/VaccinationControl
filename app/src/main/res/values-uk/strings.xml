@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="login_error">Невірний пароль або електронна пошта</string>
+
+    <string name="login">Увійти</string>
+    <string name="registration">Зареєструватися</string>
+    <string name="email">Електронна пошта</string>
+    <string name="password">Пароль</string>
+    <string name="passport">Паспорт</string>
+    <string name="passport_data">Папортні дані</string>
+    <string name="profile">Профіль</string>
+    <string name="vaccinations">Вакцинації</string>
+    <string name="email_desc">Пошта:</string>
+    <string name="username_desc">Логін:</string>
+    <string name="first_name_desc">Ім\'я:</string>
+    <string name="last_name_desc">Прізвище:</string>
+    <string name="gender_desc">Стать:</string>
+    <string name="age_desc">Вік:</string>
+    <string name="phone_desc">Мобільний:</string>
+    <string name="address_desc">Адреса:</string>
+    <string name="male">Чоловік</string>
+    <string name="female">Жінка</string>
+    <string name="passport_number" translatable="false">Номер:</string>
+    <string name="expiration_date">Термін придатності:</string>
+    <string name="country">Країна:</string>
+    <string name="notes">Відмітка:</string>
+</resources>

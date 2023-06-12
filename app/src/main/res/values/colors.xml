@@ -4,6 +4,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_color">#FE4A55</color>
-    <color name="edit_text_grey">#F5F5F5</color>
+    <color name="main_text_color">#787777</color>
+    <color name="passport_background">#B8B2B2</color>
+    <color name="icon_gray">#616060</color>
+    <color name="edit_text_gray">#F5F5F5</color>
     <color name="dividerColor">#E2E2E2</color>
 </resources>

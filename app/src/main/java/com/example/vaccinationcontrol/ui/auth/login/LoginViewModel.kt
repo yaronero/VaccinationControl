@@ -16,10 +16,17 @@ class LoginViewModel(
     private val _token = MutableLiveData<String>()
     val token: LiveData<String> = _token
 
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
+
     fun login(email: String, password: String) {
         viewModelScope.launch {
-            _token.value = authRepository.login(email, password)
-            sharedPrefsRepository.putUserToken(token.value)
+            try {
+                _token.value = authRepository.login(email, password)
+                sharedPrefsRepository.putUserToken(token.value)
+            } catch (e: Exception) {
+                _error.value = "Wrong email or password"
+            }
         }
     }
 }
