@@ -1,10 +1,10 @@
 package com.example.vaccinationcontrol.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.vaccinationcontrol.databinding.ActivityMainBinding
+import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : LocaleAwareCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 

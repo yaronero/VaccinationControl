@@ -1,18 +1,24 @@
 package com.example.vaccinationcontrol.data.api.retrofit
 
+import com.example.vaccinationcontrol.data.api.TokenInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitInstance {
+class RetrofitInstance(
+    private val tokenInterceptor: TokenInterceptor
+) {
 
     fun getInstance(): Retrofit {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS)
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+        val client = OkHttpClient.Builder()
+            .addInterceptor(interceptor)
+            .addInterceptor(tokenInterceptor)
+            .build()
 
         val gson = GsonBuilder()
             .setLenient()

@@ -1,9 +1,32 @@
 <resources>
-    <string name="app_name">VaccinationControl</string>
-    <string name="authorization_title">Vaccination\nControl</string>
+    <string name="app_name" translatable="false">VaccinationControl</string>
+    <string name="authorization_title" translatable="false">Vaccination\nControl</string>
+
+    <string name="full_name" translatable="false">%s %s</string>
+
+    <string name="login_error">Wrong email or password</string>
 
     <string name="login">Login</string>
     <string name="registration">Registration</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="passport">Passport</string>
+    <string name="passport_data">Passport data</string>
+    <string name="profile">Profile</string>
+    <string name="vaccinations">Vaccinations</string>
+    <string name="email_desc">Email:</string>
+    <string name="username_desc">Username:</string>
+    <string name="first_name_desc">First name:</string>
+    <string name="last_name_desc">Last name:</string>
+    <string name="gender_desc">Gender:</string>
+    <string name="age_desc">Age:</string>
+    <string name="phone_desc">Phone:</string>
+    <string name="address_desc">Address:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="passport_number" translatable="false">Number:</string>
+    <string name="expiration_date">Expiration date:</string>
+    <string name="country">Country:</string>
+    <string name="notes">Note:</string>
+    <string name="doctor">Doctor:</string>
 </resources>

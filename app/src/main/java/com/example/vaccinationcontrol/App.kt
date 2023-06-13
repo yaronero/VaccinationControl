@@ -1,12 +1,12 @@
 package com.example.vaccinationcontrol
 
-import android.app.Application
 import com.example.vaccinationcontrol.di.dataModule
 import com.example.vaccinationcontrol.di.viewModelModule
+import com.zeugmasolutions.localehelper.LocaleAwareApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class App : Application() {
+class App : LocaleAwareApplication() {
 
     override fun onCreate() {
         super.onCreate()
