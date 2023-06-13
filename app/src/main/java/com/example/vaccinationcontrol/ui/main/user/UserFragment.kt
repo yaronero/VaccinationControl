@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vaccinationcontrol.R
@@ -77,6 +78,13 @@ class UserFragment : Fragment() {
             binding.age.text = user.age.toString()
             binding.phone.text = user.phoneNumber
             binding.address.text = user.address
+        }
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.layoutLoading.isVisible = isLoading
+            binding.progressBar.isVisible = isLoading
+            binding.passportLayout.isEnabled = !isLoading
+            binding.vaccinationsLayout.isEnabled = !isLoading
+            binding.cardChangeLocale.isEnabled = !isLoading
         }
     }
 

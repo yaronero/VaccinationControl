@@ -9,7 +9,7 @@ import com.example.vaccinationcontrol.domain.repositories.UserRepository
 class UserRepositoryImpl(
     private val userApi: UserApi,
     private val tokenInterceptor: TokenInterceptor,
-    private val userMapper: UserMapper = UserMapper()
+    private val userMapper: UserMapper
 ): UserRepository {
 
     override suspend fun getUser(): User {

@@ -26,6 +26,6 @@ val viewModelModule = module {
     }
 
     viewModel {
-        VaccinationViewModel(get())
+        VaccinationViewModel(get(), get(), get())
     }
 }

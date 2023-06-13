@@ -15,12 +15,18 @@ class PassportViewModel(
     private val _passport = MutableLiveData<Passport>()
     val passport: LiveData<Passport> = _passport
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun getPassportByUserId(userId: Int) {
         viewModelScope.launch {
             try {
+                _isLoading.value = true
                 val passportItem = passportRepository.getPassportByUserId(userId)
                 _passport.value = passportItem
+                _isLoading.value = false
             } catch (e: Exception) {
+                _isLoading.value = false
                 e.printStackTrace()
             }
         }

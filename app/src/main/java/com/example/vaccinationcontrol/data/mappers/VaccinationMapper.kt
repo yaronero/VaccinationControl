@@ -13,9 +13,7 @@ class VaccinationMapper {
             vaccineId = vaccinationItem.vaccine_id,
             notes = vaccinationItem.notes,
             vaccinationDate = vaccinationItem.vaccination_date,
-            vaccinationLocation = vaccinationItem.vaccination_location,
-            createdAt = vaccinationItem.createdAt,
-            updatedAt = vaccinationItem.createdAt
+            vaccinationLocation = vaccinationItem.vaccination_location
         )
     }
 

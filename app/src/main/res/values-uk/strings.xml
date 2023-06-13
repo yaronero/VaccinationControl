@@ -25,4 +25,5 @@
     <string name="expiration_date">Термін придатності:</string>
     <string name="country">Країна:</string>
     <string name="notes">Відмітка:</string>
+    <string name="doctor">Доктор:</string>
 </resources>

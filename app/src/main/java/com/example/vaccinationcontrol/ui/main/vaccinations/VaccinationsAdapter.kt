@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vaccinationcontrol.R
 import com.example.vaccinationcontrol.databinding.RvVaccinationItemBinding
-import com.example.vaccinationcontrol.domain.models.Vaccination
+import com.example.vaccinationcontrol.domain.models.VaccinationFullInfo
+import java.text.SimpleDateFormat
+import java.util.Locale
 
-class VaccinationsAdapter : ListAdapter<Vaccination, VaccinationViewHolder>(VaccinationDiffUtil()) {
+class VaccinationsAdapter : ListAdapter<VaccinationFullInfo, VaccinationViewHolder>(VaccinationDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccinationViewHolder {
         val binding = RvVaccinationItemBinding.inflate(
@@ -30,18 +33,25 @@ class VaccinationViewHolder(
     private val binding: RvVaccinationItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(vaccination: Vaccination) {
-        binding.vaccinationId.text = vaccination.id.toString()
+    fun bind(vaccination: VaccinationFullInfo) {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val date = dateFormat.parse(vaccination.vaccinationDate)
+        val dateFormatted = date?.let { dateFormat.format(it) }
+        binding.note.text = vaccination.notes
+        binding.vaccineName.text = vaccination.vaccine.name
+        binding.doctorName.text = context.getString(R.string.full_name, vaccination.employee.firstName, vaccination.employee.lastName)
+        binding.location.text = vaccination.vaccinationLocation
+        binding.date.text = dateFormatted
     }
 }
 
-class VaccinationDiffUtil : DiffUtil.ItemCallback<Vaccination>() {
+class VaccinationDiffUtil : DiffUtil.ItemCallback<VaccinationFullInfo>() {
 
-    override fun areItemsTheSame(oldItem: Vaccination, newItem: Vaccination): Boolean {
+    override fun areItemsTheSame(oldItem: VaccinationFullInfo, newItem: VaccinationFullInfo): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Vaccination, newItem: Vaccination): Boolean {
+    override fun areContentsTheSame(oldItem: VaccinationFullInfo, newItem: VaccinationFullInfo): Boolean {
         return oldItem == newItem
     }
 }

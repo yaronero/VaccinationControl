@@ -7,7 +7,7 @@ import com.example.vaccinationcontrol.domain.repositories.PassportRepository
 
 class PassportRepositoryImpl(
     private val passportApi: PassportApi,
-    private val passportMapper: PassportMapper = PassportMapper()
+    private val passportMapper: PassportMapper
 ) : PassportRepository {
 
     override suspend fun getPassportByUserId(userId: Int): Passport {
