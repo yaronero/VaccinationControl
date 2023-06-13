@@ -3,6 +3,7 @@ package com.example.vaccinationcontrol.di
 import com.example.vaccinationcontrol.data.api.TokenInterceptor
 import com.example.vaccinationcontrol.data.api.apis.AuthApi
 import com.example.vaccinationcontrol.data.api.apis.EmployeeApi
+import com.example.vaccinationcontrol.data.api.apis.FCMTokenApi
 import com.example.vaccinationcontrol.data.api.apis.PassportApi
 import com.example.vaccinationcontrol.data.api.apis.UserApi
 import com.example.vaccinationcontrol.data.api.apis.VaccinationApi
@@ -15,6 +16,7 @@ import com.example.vaccinationcontrol.data.mappers.VaccinationMapper
 import com.example.vaccinationcontrol.data.mappers.VaccineMapper
 import com.example.vaccinationcontrol.data.repositories.AuthRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.EmployeeRepositoryImpl
+import com.example.vaccinationcontrol.data.repositories.FCMTokenRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.PassportRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.SharedPrefsRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.UserRepositoryImpl
@@ -22,11 +24,13 @@ import com.example.vaccinationcontrol.data.repositories.VaccinationRepositoryImp
 import com.example.vaccinationcontrol.data.repositories.VaccineRepositoryImpl
 import com.example.vaccinationcontrol.domain.repositories.AuthRepository
 import com.example.vaccinationcontrol.domain.repositories.EmployeeRepository
+import com.example.vaccinationcontrol.domain.repositories.FCMTokenRepository
 import com.example.vaccinationcontrol.domain.repositories.PassportRepository
 import com.example.vaccinationcontrol.domain.repositories.SharedPrefsRepository
 import com.example.vaccinationcontrol.domain.repositories.UserRepository
 import com.example.vaccinationcontrol.domain.repositories.VaccinationRepository
 import com.example.vaccinationcontrol.domain.repositories.VaccineRepository
+import com.example.vaccinationcontrol.services.pushes.PushService
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -63,6 +67,10 @@ val dataModule = module {
         (get() as RetrofitInstance).getInstance().create(EmployeeApi::class.java)
     }
 
+    single<FCMTokenApi> {
+        (get() as RetrofitInstance).getInstance().create(FCMTokenApi::class.java)
+    }
+
     single<AuthRepository> {
         AuthRepositoryImpl(get(), get())
     }
@@ -91,6 +99,10 @@ val dataModule = module {
         SharedPrefsRepositoryImpl(get())
     }
 
+    single<FCMTokenRepository> {
+        FCMTokenRepositoryImpl(get())
+    }
+
     single {
         UserMapper()
     }
@@ -109,5 +121,9 @@ val dataModule = module {
 
     single {
         EmployeeMapper()
+    }
+
+    single {
+        PushService()
     }
 }

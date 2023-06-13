@@ -5,14 +5,19 @@
         <item name="colorSecondary">@color/main_color</item>
     </style>
 
+    <style name="InputTextLayout">
+        <item name="android:background">@drawable/background_rounded_shape</item>
+        <item name="android:backgroundTint">@color/icon_gray</item>
+    </style>
+
     <style name="DescriptionText">
         <item name="android:textSize">@dimen/description_text_size</item>
-        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="UserInfoText">
         <item name="android:textSize">@dimen/description_text_size</item>
-        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="UserInfoLayout">
