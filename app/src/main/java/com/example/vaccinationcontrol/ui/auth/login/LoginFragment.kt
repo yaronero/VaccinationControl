@@ -39,6 +39,10 @@ class LoginFragment : Fragment() {
             viewModel.login(binding.etEmail.text.toString(), binding.etPassword.text.toString())
         }
 
+        binding.arrowBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         binding.cardChangeLocale.setOnClickListener {
             val curLocale = getCurrentLocale(requireContext())
             if(curLocale == Locales.Ukrainian) {

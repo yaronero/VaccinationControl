@@ -4,6 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="@dimen/arrow_back_size"
+        android:layout_height="@dimen/arrow_back_size"
+        android:layout_margin="24dp"
+        android:importantForAccessibility="no"
+        android:theme="@style/GrayBackArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_change_locale"
         android:layout_width="48dp"

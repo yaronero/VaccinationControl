@@ -26,7 +26,12 @@
     </style>
 
     <style name="WhiteBackArrow">
-        <item name="android:src">@drawable/ic_arrow_back</item>
+        <item name="android:src">@drawable/ic_arrow_back_white</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="GrayBackArrow">
+        <item name="android:src">@drawable/ic_arrow_back_gray</item>
         <item name="android:padding">4dp</item>
     </style>
 

@@ -43,6 +43,13 @@ class UserFragment : Fragment() {
             }
         }
 
+        binding.vaccinationsLayout.setOnClickListener {
+            viewModel.user.value?.id?.let { id ->
+                val toVaccinationsFragment = UserFragmentDirections.toVaccinationsFragment(id)
+                findNavController().navigate(toVaccinationsFragment)
+            }
+        }
+
         binding.cardChangeLocale.setOnClickListener {
             val curLocale = getCurrentLocale(requireContext())
             if(curLocale == Locales.Ukrainian) {

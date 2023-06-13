@@ -4,15 +4,18 @@ import com.example.vaccinationcontrol.data.api.TokenInterceptor
 import com.example.vaccinationcontrol.data.api.apis.AuthApi
 import com.example.vaccinationcontrol.data.api.apis.PassportApi
 import com.example.vaccinationcontrol.data.api.apis.UserApi
+import com.example.vaccinationcontrol.data.api.apis.VaccinationsApi
 import com.example.vaccinationcontrol.data.api.retrofit.RetrofitInstance
 import com.example.vaccinationcontrol.data.repositories.AuthRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.PassportRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.SharedPrefsRepositoryImpl
 import com.example.vaccinationcontrol.data.repositories.UserRepositoryImpl
+import com.example.vaccinationcontrol.data.repositories.VaccinationRepositoryImpl
 import com.example.vaccinationcontrol.domain.repositories.AuthRepository
 import com.example.vaccinationcontrol.domain.repositories.PassportRepository
 import com.example.vaccinationcontrol.domain.repositories.SharedPrefsRepository
 import com.example.vaccinationcontrol.domain.repositories.UserRepository
+import com.example.vaccinationcontrol.domain.repositories.VaccinationRepository
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -37,6 +40,10 @@ val dataModule = module {
         (get() as RetrofitInstance).getInstance().create(PassportApi::class.java)
     }
 
+    single<VaccinationsApi> {
+        (get() as RetrofitInstance).getInstance().create(VaccinationsApi::class.java)
+    }
+
     single<AuthRepository> {
         AuthRepositoryImpl(get(), get())
     }
@@ -47,6 +54,10 @@ val dataModule = module {
 
     single<PassportRepository> {
         PassportRepositoryImpl(get())
+    }
+
+    single<VaccinationRepository> {
+        VaccinationRepositoryImpl(get())
     }
 
     single<SharedPrefsRepository> {

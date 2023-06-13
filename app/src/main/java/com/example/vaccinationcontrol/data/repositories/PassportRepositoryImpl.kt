@@ -12,8 +12,8 @@ class PassportRepositoryImpl(
 
     override suspend fun getPassportByUserId(userId: Int): Passport {
         val passports = passportApi.getPassports()
-        val userItem = passports.body()?.find { it.user_id == userId }!!
+        val passportItem = passports.body()?.find { it.user_id == userId }!!
 
-        return passportMapper.mapPassportItemToPassportModel(userItem)
+        return passportMapper.mapPassportItemToPassportModel(passportItem)
     }
 }

@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vaccinationcontrol.databinding.FragmentPassportBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class PassportFragment : Fragment() {
 
@@ -40,10 +42,14 @@ class PassportFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.passport.observe(viewLifecycleOwner) { passport ->
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val date = dateFormat.parse(passport.expirationDate)
+            val dateFormatted = date?.let { dateFormat.format(it) }
             binding.number.text = passport.passportNumber
             binding.note.text = passport.notes
             binding.country.text = passport.country
-            binding.expirationDate.text = passport.expirationDate
+            binding.expirationDate.text = dateFormatted
+
         }
     }
 }

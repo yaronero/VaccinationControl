@@ -18,7 +18,8 @@ class PassportViewModel(
     fun getPassportByUserId(userId: Int) {
         viewModelScope.launch {
             try {
-                _passport.value = passportRepository.getPassportByUserId(userId)
+                val passportItem = passportRepository.getPassportByUserId(userId)
+                _passport.value = passportItem
             } catch (e: Exception) {
                 e.printStackTrace()
             }
