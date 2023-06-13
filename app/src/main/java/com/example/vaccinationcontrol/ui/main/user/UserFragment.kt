@@ -1,9 +1,14 @@
 package com.example.vaccinationcontrol.ui.main.user
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -23,6 +28,26 @@ class UserFragment : Fragment() {
 
     private val viewModel: UserViewModel by viewModel()
 
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            // FCM SDK (and your app) can post notifications.
+        }
+    }
+
+    private fun askNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED
+            ) {
+
+            } else {
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,6 +61,8 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val locale = getCurrentLocale(requireContext())
         updateChangeLocaleButton(locale)
+
+        askNotificationPermission()
 
         binding.passportLayout.setOnClickListener {
             viewModel.user.value?.id?.let { id ->

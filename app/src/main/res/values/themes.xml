@@ -6,7 +6,12 @@
     </style>
 
     <style name="Theme.VaccinationControl" parent="Base.Theme.VaccinationControl" />
-    
+
+    <style name="InputTextLayout">
+        <item name="android:background">@drawable/background_rounded_shape</item>
+        <item name="android:backgroundTint">@color/edit_text_gray</item>
+    </style>
+
     <style name="DescriptionText">
         <item name="android:textSize">@dimen/description_text_size</item>
         <item name="android:textColor">@color/main_text_color</item>

@@ -18,7 +18,7 @@ val viewModelModule = module {
     }
 
     viewModel {
-        UserViewModel(get())
+        UserViewModel(get(), get(), get())
     }
 
     viewModel {

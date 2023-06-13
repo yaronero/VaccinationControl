@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158211789432",
+    "project_id": "vaccinationsystem-91a3e",
+    "storage_bucket": "vaccinationsystem-91a3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158211789432:android:bcad0c05941f6b87d0538d",
+        "android_client_info": {
+          "package_name": "com.example.vaccinationcontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158211789432-f415be7ob8tt6u7qo4juvhjuf2golvju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbdo5cVEjTEx-K-696k4u6xYmrmXI_kjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158211789432-f415be7ob8tt6u7qo4juvhjuf2golvju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
