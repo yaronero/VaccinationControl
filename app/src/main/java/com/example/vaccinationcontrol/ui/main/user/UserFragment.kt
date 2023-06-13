@@ -9,8 +9,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.vaccinationcontrol.R
 import com.example.vaccinationcontrol.databinding.FragmentUserBinding
 import com.example.vaccinationcontrol.utils.decodeGender
+import com.example.vaccinationcontrol.utils.getCurrentLocale
 import com.example.vaccinationcontrol.utils.src
+import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
+import com.zeugmasolutions.localehelper.Locales
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.Locale
 
 class UserFragment : Fragment() {
 
@@ -29,11 +33,24 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val locale = getCurrentLocale(requireContext())
+        updateChangeLocaleButton(locale)
 
         binding.passportLayout.setOnClickListener {
             viewModel.user.value?.id?.let { id ->
                 val toPassportFragment = UserFragmentDirections.toPassportFragment(id)
                 findNavController().navigate(toPassportFragment)
+            }
+        }
+
+        binding.cardChangeLocale.setOnClickListener {
+            val curLocale = getCurrentLocale(requireContext())
+            if(curLocale == Locales.Ukrainian) {
+                (requireActivity() as LocaleAwareCompatActivity).updateLocale(Locales.English)
+                updateChangeLocaleButton(Locales.English)
+            } else {
+                (requireActivity() as LocaleAwareCompatActivity).updateLocale(Locales.Ukrainian)
+                updateChangeLocaleButton(Locales.Ukrainian)
             }
         }
 
@@ -53,6 +70,14 @@ class UserFragment : Fragment() {
             binding.age.text = user.age.toString()
             binding.phone.text = user.phoneNumber
             binding.address.text = user.address
+        }
+    }
+
+    private fun updateChangeLocaleButton(locale: Locale) {
+        if(locale == Locales.Ukrainian) {
+            binding.ivLocaleFlag.setImageResource(R.drawable.ic_britain_flag)
+        } else {
+            binding.ivLocaleFlag.setImageResource(R.drawable.ic_ukraine_flag)
         }
     }
 }
